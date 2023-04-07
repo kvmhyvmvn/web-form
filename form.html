@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mvp.css/1.6.2/mvp.css"
+      integrity="sha512-slB21TTezvEAaveXL2z5dh3TjuIuk5XNI+9xzQRmTl8i651v3JQLKPEiHuMR6xyw1P+VXGt7QQdv9Xb0iBXnkQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">-->
+    <style>
+      legend {
+        display: none;
+      }
+      fieldset {
+        border-width: 0px;
+      }
+      .path {
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      [for=photo] {
+        background-color: dodgerblue;
+        display: inline-block;
+        color: white;
+        padding: 5px 15px;
+      }
+      #file_path {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>네이버와 같은 검색 폼</h1>
+    <form action="/modify" method="post" name="register_form" autocomplete="off">
+      <label for="name">검색어</label>
+      <!-- 길게 한 줄을 입력받을 때 input vs 어려줄 textarea -->
+      <input type="text" id="name" placeholder="광주 강수량">
+      <input type="submit" value="검색">
+    </form>
+    <h2>회원가입 폼</h2>
+    <form>
+      <fieldset> <!-- user id, name, id 는 보통 세 값을 갖게 설정 -->
+        <legend>회원정보</legend>
+        <div>
+            <label for="user_id">아이디</label>
+            <input type="text" maxlength="12" name="user_id" id="user_id" autofocus required placeholder= "숫자, 문자, 기호 포함 12자">
+        </div>
+        <div>
+            <label for="user_pw">비밀번호</label>
+            <input type="password" maxlength="16" name="user_pw" id="user_pw" placeholder= "숫자, 문자, 기호 포함 16자">
+        </div>
+        <div>
+            <label for="user_pw2">비밀번호 확인</label>
+            <input type="password" maxlength="16" name="user_pw2" id="user_pw2" placeholder= "다시 한번 비밀번호 입력">
+            <!-- 입력값 user_pw와 user_pw2가 불일치 할 때 -->
+            <p>입력한 비밀번호가 틀립니다.</p>
+        </div>
+        <div>
+            <label for="user_phone">전화번호</label>
+            <input type="tel" id="user_phone" name="user_phone" maxlength="11" required placeholder="- 기호 생략">
+        </div>
+        <div>
+            <label for="user_mail">이메일</label>
+            <input type="text" name="" id="">@
+            <select name="" id="">
+                <option value="naver.com">네이버</option>
+                <option value="gmail.com">구글</option>
+                <option value="daum.net">다음</option>
+            </select>
+        </div>
+        </fieldset>
+      <fieldset> <!-- form에서만 사용하는 태그, 마치 div와 같은 역할 -->
+        <legend>결혼여부</legend>
+        <input type="radio" name="married" value="1" id="married1" checked>
+        <label for="married1">기혼</label>
+        <input type="radio" name="married" value="0" id="married2">
+        <label for="married2">미혼</label>
+      </fieldset>
+      <fieldset>
+        <legend>문자, 광고, 수신동의</legend>
+        <input type="checkbox" name="yes" id="yes" checked>
+        <label for="yes">동의함</label>
+      </fieldset>
+      <fieldset>
+        <legend>취미</legend>
+        <input type="checkbox" name="h1" id="h1">
+        <label for="h1">낮잠</label>
+        <input type="checkbox" name="h2" id="h2">
+        <label for="h2">TV시청</label>
+        <input type="checkbox" name="h3" id="h3">
+        <label for="h3">게임하기</label>
+        <input type="checkbox" name="h4" id="h4">
+        <label for="h4">독서</label>
+      </fieldset>
+      <fieldset>
+        <legend>프로필 사진 등록</legend>
+        <input type="text" id="file_path" disabled placeholder="d:\사진\증명사진.jpg">
+        <label for="photo">찾기</label>
+        <div class="path">
+            <input type="file" id="attach_file">
+        </div>
+      </fieldset>
+      <button>가입</button>
+      <button>취소</button>
+    </form>
+  </body>
+</html>
